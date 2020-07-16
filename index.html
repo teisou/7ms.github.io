@@ -16,8 +16,8 @@
   <div class="alert-body">
     <div id="js-alert-head" class="alert-head"></div>
     <div class="alert-concent">
-      <p>域名更换：7ms.me</p>
-      <p>您将在我们的网站享受更多</p>
+      <p>新域名：7ms.me</p>
+      <p>建议Ctrl+D收藏本发布页</p>
     </div>
     <a id="js-alert-btn" class="alert-btn" href="https://7ms.me/">立即前往</a> </div>
   <div class="alert-footer clearfix"> <svg width="46px" height="42px" class="alert-footer-icon">
@@ -54,3 +54,31 @@ function alertSet(e) {
 </body>
 </html>
 <script>alertSet('新域名：www.7ms.me');</script>
+//站点收藏
+AddFavorite = function(sURL, sTitle){
+try{
+window.external.addFavorite(sURL, sTitle);
+}
+catch (e){
+try{
+window.sidebar.addPanel(sTitle, sURL, '');
+}
+catch (e){
+alert('请使用Ctrl+D进行添加');
+}
+}
+}
+$(function(){
+//收藏
+$('#collectPage').click(function(){
+   AddFavorite('http://suo.im/5uo6g8', '慕斯米云加速');
+   return false;
+});
+//左边手风琴
+var l = document.location.href;
+$('.bannerTop li a').each(function(){
+if(l.indexOf($(this).attr('href')) != -1){
+$(this).addClass('nav_current');
+}
+});
+});
