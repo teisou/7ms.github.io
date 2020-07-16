@@ -54,31 +54,3 @@ function alertSet(e) {
 </body>
 </html>
 <script>alertSet('新域名：www.7ms.me');</script>
-//站点收藏
-AddFavorite = function(sURL, sTitle){
-try{
-window.external.addFavorite(sURL, sTitle);
-}
-catch (e){
-try{
-window.sidebar.addPanel(sTitle, sURL, '');
-}
-catch (e){
-alert('请使用Ctrl+D进行添加');
-}
-}
-}
-$(function(){
-//收藏
-$('#collectPage').click(function(){
-   AddFavorite('http://suo.im/5uo6g8', '慕斯米云加速');
-   return false;
-});
-//左边手风琴
-var l = document.location.href;
-$('.bannerTop li a').each(function(){
-if(l.indexOf($(this).attr('href')) != -1){
-$(this).addClass('nav_current');
-}
-});
-});
